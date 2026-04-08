@@ -1,0 +1,38 @@
+dimensions      [0 0 0 1 0 0 0];
+internalField   uniform 300;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           uniform 300;
+    }
+
+    outlet
+    {
+        type            zeroGradient;
+    }
+
+    top
+    {
+        type            symmetryPlane;
+    }
+
+    bottom
+    {
+        type            symmetryPlane;
+    }
+
+    cylinder
+    {
+        type            externalWallHeatFluxTemperature;
+        q               uniform 1000;
+        value           uniform 300;
+    }
+
+    frontAndBack
+    {
+        type            empty;
+    }
+}

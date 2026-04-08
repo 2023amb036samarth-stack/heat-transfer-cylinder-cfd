@@ -1,0 +1,23 @@
+application     buoyantSimpleFoam;
+
+startFrom       startTime;
+startTime       0;
+stopAt          endTime;
+endTime         1000;
+deltaT          1;
+
+writeControl    timeStep;
+writeInterval   250;
+purgeWrite      0;
+
+writeFormat     ascii;
+writePrecision  6;
+writeCompression uncompressed;
+
+timeFormat      general;
+timePrecision   6;
+
+runTimeModifiable yes;
+adjustTimeStep  no;
+
+functions       {};

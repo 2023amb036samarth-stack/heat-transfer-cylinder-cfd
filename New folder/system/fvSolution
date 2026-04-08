@@ -1,0 +1,54 @@
+solvers
+{
+    p_rgh
+    {
+        solver          GAMG;
+        tolerance       1e-06;
+        relTol          0.1;
+        smoother        GaussSeidel;
+        nPreSweeps      0;
+        nPostSweeps     2;
+        cacheAgglomeration true;
+        nCellsInCoarsestLevel 10;
+        agglomerator    faceAreaPair;
+        mergeLevels     1;
+    }
+
+    U
+    {
+        solver          smoothSolver;
+        smoother        symGaussSeidel;
+        tolerance       1e-06;
+        relTol          0.1;
+    }
+
+    T
+    {
+        solver          smoothSolver;
+        smoother        symGaussSeidel;
+        tolerance       1e-06;
+        relTol          0.1;
+    }
+}
+
+SIMPLE
+{
+    residualControl
+    {
+        p_rgh           1e-04;
+        U               1e-05;
+        T               1e-05;
+    }
+    nNonOrthogonalCorrectors 0;
+    consistent      yes;
+}
+
+diagnostics
+{
+    residualControl
+    {
+        p_rgh           1e-04;
+        U               1e-05;
+        T               1e-05;
+    }
+}
